@@ -19,9 +19,7 @@ namespace ATMSystem
         {
             this.workContext = workContext;
             InitializeComponent();
-
             this.CenterToScreen();
-
         }
 
         public void ThongTinNganHangLoad()
