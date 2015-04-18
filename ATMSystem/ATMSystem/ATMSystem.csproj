@@ -57,7 +57,7 @@
     <Compile Include="Admin_MainForm.Designer.cs">
       <DependentUpon>Admin_MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ConnectString.cs" />
+    <Compile Include="Core\ConnectString.cs" />
     <Compile Include="Core\WorkContext.cs" />
     <Compile Include="DangNhap.cs">
       <SubType>Form</SubType>
