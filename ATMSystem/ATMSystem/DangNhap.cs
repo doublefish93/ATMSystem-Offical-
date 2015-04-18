@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Configuration;
 using System.Data.SqlClient;
+using ATMSystem.Core;
 
 namespace ATMSystem
 {
@@ -75,7 +76,7 @@ namespace ATMSystem
             user.Name = dt.Rows[0][1].ToString();
 
             txtMK.Text = string.Empty;
-            new Admin_MainForm(user, this).Show();
+            new Admin_MainForm(user, this,workContext).Show();
             this.Visible = false;
         }
 

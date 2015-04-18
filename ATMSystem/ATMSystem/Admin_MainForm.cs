@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ATMSystem.Core;
 
 namespace ATMSystem
 {
@@ -14,10 +15,12 @@ namespace ATMSystem
     {
         private User user = null;
         private DangNhap dangNhapForm = null;
-        public Admin_MainForm(User user, DangNhap dangNhapForm)
+        private readonly WorkContext workContext;
+        public Admin_MainForm(User user, DangNhap dangNhapForm, WorkContext workContext)
         {
             this.user = user;
             this.dangNhapForm = dangNhapForm;
+            this.workContext = workContext;
             InitializeComponent();
             this.CenterToScreen();
         }
@@ -39,7 +42,7 @@ namespace ATMSystem
 
         private void đôiMâtKhâuToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new Admin_DoiMatKhau(user).ShowDialog();
+            new Admin_DoiMatKhau(user,workContext).ShowDialog();
         }
 
     }

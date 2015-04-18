@@ -8,15 +8,20 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ATMSystem
+namespace ATMSystem.Core
 {
     public class WorkContext
     {
+        private readonly ConnectString connectString;
+
+        public WorkContext(ConnectString connectString)
+        {
+            this.connectString = connectString;
+        }
+
         public DataTable GetRecordsInATable(string columns, string table, string condition, Dictionary<string, object> parameters)
         {
             var dt = new DataTable();
-
-            var connectString = new ConnectString();
 
             var url = ConfigurationManager.ConnectionStrings[connectString.url].ConnectionString;
 
@@ -54,7 +59,7 @@ namespace ATMSystem
                 {
                     foreach (var parameter in parameters)
                     {
-                        cmd.Parameters.Add(parameter.Key, parameter.Value);
+                        cmd.Parameters.Add(new SqlParameter(parameter.Key, parameter.Value));
                     }
                 }
                 var da = new SqlDataAdapter(cmd);
@@ -67,6 +72,60 @@ namespace ATMSystem
             catch (Exception ex)
             {
                 return null;
+            }
+            finally
+            {
+                conn.Close();
+            }
+
+        }
+
+        public bool ExecuteProcedureParams(string procedureName, Dictionary<string, object> parameters)
+        {
+            var url = ConfigurationManager.ConnectionStrings[connectString.url].ConnectionString;
+
+            if (string.IsNullOrEmpty(url))
+            {
+                MessageBox.Show("Kiểm tra lại đường dẫn kết nối");
+                return false;
+            }
+
+            var conn = new SqlConnection(url);
+
+            if (string.IsNullOrEmpty(procedureName))
+            {
+                return false;
+            }
+
+            try
+            {
+                conn.Open();
+
+                var cmd = new SqlCommand(procedureName, conn)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+
+                if (parameters != null)
+                {
+                    foreach (var parameter in parameters)
+                    {
+                        cmd.Parameters.Add(new SqlParameter(parameter.Key, parameter.Value));
+                    }
+                }
+                var stt = cmd.ExecuteNonQuery();
+
+                if (stt > 0)
+                {
+                    return true;
+                }
+
+                return false;
+
+            }
+            catch (Exception ex)
+            {
+                return false;
             }
             finally
             {
