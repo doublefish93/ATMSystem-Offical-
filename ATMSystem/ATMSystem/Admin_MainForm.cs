@@ -45,5 +45,10 @@ namespace ATMSystem
             new Admin_DoiMatKhau(user,workContext).ShowDialog();
         }
 
+        private void thôngTinNgânHàngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new Admin_QuanLyNganHang(workContext).ShowDialog();
+        }
+
     }
 }

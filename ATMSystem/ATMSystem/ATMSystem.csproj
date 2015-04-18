@@ -76,6 +76,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSe.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Domain\BankInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="User.cs" />
