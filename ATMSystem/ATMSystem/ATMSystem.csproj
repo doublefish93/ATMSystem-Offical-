@@ -57,6 +57,12 @@
     <Compile Include="Admin_MainForm.Designer.cs">
       <DependentUpon>Admin_MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Admin_QuanLyATM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin_QuanLyATM.Designer.cs">
+      <DependentUpon>Admin_QuanLyATM.cs</DependentUpon>
+    </Compile>
     <Compile Include="Admin_QuanLyNganHang.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,6 +91,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Admin_MainForm.resx">
       <DependentUpon>Admin_MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin_QuanLyATM.resx">
+      <DependentUpon>Admin_QuanLyATM.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Admin_QuanLyNganHang.resx">
       <DependentUpon>Admin_QuanLyNganHang.cs</DependentUpon>

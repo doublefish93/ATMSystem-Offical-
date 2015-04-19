@@ -134,6 +134,7 @@
             this.thôngTinCâyATMToolStripMenuItem.Name = "thôngTinCâyATMToolStripMenuItem";
             this.thôngTinCâyATMToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
             this.thôngTinCâyATMToolStripMenuItem.Text = "Thông Tin Cây ATM";
+            this.thôngTinCâyATMToolStripMenuItem.Click += new System.EventHandler(this.thôngTinCâyATMToolStripMenuItem_Click);
             // 
             // quảnLýNgườiDùngToolStripMenuItem
             // 
