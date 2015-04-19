@@ -80,6 +80,69 @@ namespace ATMSystem.Core
 
         }
 
+        public DataTable GetById(string columns, string table, string id)
+        {
+            var dt = new DataTable();
+
+            var url = ConfigurationManager.ConnectionStrings[connectString.url].ConnectionString;
+
+            if (string.IsNullOrEmpty(url))
+            {
+                MessageBox.Show("Kiểm tra lại đường dẫn kết nối");
+                return null;
+            }
+
+            var conn = new SqlConnection(url);
+
+            var queryGetColumnName = string.Empty;
+
+            if (string.IsNullOrEmpty(columns))
+            {
+                columns = "*";
+            }
+
+            if (string.IsNullOrEmpty(table))
+            {
+                return null;
+            }
+
+            if (string.IsNullOrEmpty(id))
+            {
+                return null;
+            }
+
+            queryGetColumnName = string.Format("SELECT COLUMN_NAME FROM information_schema.columns WHERE TABLE_NAME= '{0}'", table);
+
+            try
+            {
+                var cmd = new SqlCommand(queryGetColumnName, conn);
+                var da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    var firstColumnId = dt.Rows[0][0].ToString();
+                    var query = string.Format("Select top 1 * from {0} where {1}={2}", table, firstColumnId, id);
+                    var cmdGetFirst = new SqlCommand(query, conn);
+                    var daGetFirst = new SqlDataAdapter(cmdGetFirst);
+                    var dtGetFirst = new DataTable();
+                    daGetFirst.Fill(dtGetFirst);
+                    if (dtGetFirst.Rows.Count > 0)
+                    {
+                        return dtGetFirst;
+                    }
+                }
+                return null;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
         public bool ExecuteProcedureParams(string procedureName, Dictionary<string, object> parameters)
         {
             var url = ConfigurationManager.ConnectionStrings[connectString.url].ConnectionString;

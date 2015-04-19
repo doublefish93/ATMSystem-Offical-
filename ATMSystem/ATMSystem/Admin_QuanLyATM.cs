@@ -24,19 +24,17 @@ namespace ATMSystem
 
         public void LoadDanhSachCayATM()
         {
-            var list = new ListBox();
             var dt = workContext.GetRecordsInATable("Sys_ID", "ATM_Info", string.Empty, null);
+            
             if (dt != null)
             {
-                //listATM.DisplayMember = string.Format("Cây ATM {0}",dt.Columns[0]);
-                //listATM.ValueMember = dt.Columns[0].ToString();
-                //listATM.DataSource = dt;
-                for (int i = 0; i < dt.Rows.Count; i++)
+                for (var i = 0; i < dt.Rows.Count; i++)
                 {
                     var name = string.Format("Cây ATM {0}", dt.Rows[i]["Sys_ID"]);
                     listATM.Items.Add(name);
                 }
             }
+            var test = workContext.GetById(string.Empty, "Account", "1");
         }
 
         private void label13_Click(object sender, EventArgs e)
