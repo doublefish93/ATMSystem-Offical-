@@ -27,7 +27,6 @@ namespace ATMSystem.Core
 
             if (string.IsNullOrEmpty(url))
             {
-                MessageBox.Show("Kiểm tra lại đường dẫn kết nối");
                 return null;
             }
 
@@ -88,7 +87,6 @@ namespace ATMSystem.Core
 
             if (string.IsNullOrEmpty(url))
             {
-                MessageBox.Show("Kiểm tra lại đường dẫn kết nối");
                 return null;
             }
 
@@ -116,20 +114,26 @@ namespace ATMSystem.Core
             try
             {
                 var cmd = new SqlCommand(queryGetColumnName, conn);
+
                 var da = new SqlDataAdapter(cmd);
+
                 da.Fill(dt);
+
                 if (dt.Rows.Count > 0)
                 {
                     var firstColumnId = dt.Rows[0][0].ToString();
-                    var query = string.Format("Select top 1 * from {0} where {1}={2}", table, firstColumnId, id);
+
+                    var query = string.Format("Select top 1 {0} from {1} where {2}={3}", columns, table, firstColumnId, id);
+
                     var cmdGetFirst = new SqlCommand(query, conn);
+
                     var daGetFirst = new SqlDataAdapter(cmdGetFirst);
+
                     var dtGetFirst = new DataTable();
+
                     daGetFirst.Fill(dtGetFirst);
-                    if (dtGetFirst.Rows.Count > 0)
-                    {
-                        return dtGetFirst;
-                    }
+
+                    return dtGetFirst.Rows.Count > 0 ? dtGetFirst : null;
                 }
                 return null;
             }
@@ -149,7 +153,6 @@ namespace ATMSystem.Core
 
             if (string.IsNullOrEmpty(url))
             {
-                MessageBox.Show("Kiểm tra lại đường dẫn kết nối");
                 return false;
             }
 
@@ -194,7 +197,6 @@ namespace ATMSystem.Core
             {
                 conn.Close();
             }
-
         }
     }
 }
