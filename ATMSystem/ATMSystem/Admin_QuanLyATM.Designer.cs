@@ -67,6 +67,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -93,6 +94,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.button1);
             this.groupBox2.Controls.Add(this.btnCancel);
             this.groupBox2.Controls.Add(this.btnSubmit);
             this.groupBox2.Controls.Add(this.lblStatus);
@@ -123,7 +125,7 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(292, 348);
+            this.btnCancel.Location = new System.Drawing.Point(238, 348);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 41);
             this.btnCancel.TabIndex = 26;
@@ -133,7 +135,7 @@
             // 
             // btnSubmit
             // 
-            this.btnSubmit.Location = new System.Drawing.Point(155, 348);
+            this.btnSubmit.Location = new System.Drawing.Point(98, 348);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(75, 41);
             this.btnSubmit.TabIndex = 25;
@@ -435,6 +437,16 @@
             this.label13.Text = "label13";
             this.label13.Click += new System.EventHandler(this.label13_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(376, 348);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 41);
+            this.button1.TabIndex = 27;
+            this.button1.Text = "Đóng";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Admin_QuanLyATM
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -498,5 +510,6 @@
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnSubmit;
+        private System.Windows.Forms.Button button1;
     }
 }

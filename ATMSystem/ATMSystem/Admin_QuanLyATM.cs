@@ -32,7 +32,7 @@ namespace ATMSystem
             {
                 for (var i = 0; i < dt.Rows.Count; i++)
                 {
-                    var name = string.Format("Cây ATM {0}", dt.Rows[i]["Sys_ID"]);
+                    var name = string.Format("Cây ATM Mã {0}", dt.Rows[i]["Sys_ID"]);
                     listATM.Items.Add(name);
                 }
             }
@@ -370,6 +370,11 @@ namespace ATMSystem
         private void btnCancel_Click(object sender, EventArgs e)
         {
             Clear();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
         }
     }
 }
