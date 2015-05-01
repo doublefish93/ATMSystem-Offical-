@@ -141,6 +141,7 @@
             this.quảnLýNgườiDùngToolStripMenuItem.Name = "quảnLýNgườiDùngToolStripMenuItem";
             this.quảnLýNgườiDùngToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
             this.quảnLýNgườiDùngToolStripMenuItem.Text = "Quản Lý Người Dùng";
+            this.quảnLýNgườiDùngToolStripMenuItem.Click += new System.EventHandler(this.quảnLýNgườiDùngToolStripMenuItem_Click);
             // 
             // logsToolStripMenuItem
             // 

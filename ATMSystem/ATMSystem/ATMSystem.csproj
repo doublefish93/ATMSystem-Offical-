@@ -69,6 +69,12 @@
     <Compile Include="Admin_QuanLyNganHang.Designer.cs">
       <DependentUpon>Admin_QuanLyNganHang.cs</DependentUpon>
     </Compile>
+    <Compile Include="Admin_QuanLyNguoiDung.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin_QuanLyNguoiDung.Designer.cs">
+      <DependentUpon>Admin_QuanLyNguoiDung.cs</DependentUpon>
+    </Compile>
     <Compile Include="Core\ConnectString.cs" />
     <Compile Include="Core\WorkContext.cs" />
     <Compile Include="DangNhap.cs">
@@ -97,6 +103,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Admin_QuanLyNganHang.resx">
       <DependentUpon>Admin_QuanLyNganHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin_QuanLyNguoiDung.resx">
+      <DependentUpon>Admin_QuanLyNguoiDung.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DangNhap.resx">
       <DependentUpon>DangNhap.cs</DependentUpon>

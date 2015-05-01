@@ -45,8 +45,8 @@ namespace ATMSystem.Core
             }
 
             query = string.IsNullOrEmpty(condition) ?
-                  string.Format("Select {0} from {1}", columns, table)
-                : string.Format("Select {0} from {1} where {2}", columns, table, condition);
+                  string.Format("Select {0} from [{1}]", columns, table)
+                : string.Format("Select {0} from [{1}] where {2}", columns, table, condition);
 
             try
             {
@@ -191,6 +191,70 @@ namespace ATMSystem.Core
             catch (Exception ex)
             {
                 return false;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        public int CountRecords(string column, bool distinct, string table, string condition, Dictionary<string, object> parameters)
+        {
+            var dt = new DataTable();
+
+            var url = ConfigurationManager.ConnectionStrings[connectString.url].ConnectionString;
+
+            if (string.IsNullOrEmpty(url))
+            {
+                return -1;
+            }
+
+            var conn = new SqlConnection(url);
+
+            var query = string.Empty;
+
+            if (string.IsNullOrEmpty(column))
+            {
+                column = "*";
+            }
+
+            if (distinct && !column.Equals("*"))
+            {
+                column = string.Format("DISTINCT {0}", column);
+            }
+
+            if (string.IsNullOrEmpty(table))
+            {
+                return -1;
+            }
+
+            query = string.IsNullOrEmpty(condition) ?
+                  string.Format("Select Count({0}) from {1}", column, table)
+                : string.Format("Select Count({0}) from {1} where {2}", column, table, condition);
+
+            try
+            {
+                conn.Open();
+
+                var cmd = new SqlCommand(query, conn);
+
+                if (parameters != null && !string.IsNullOrEmpty(condition))
+                {
+                    foreach (var parameter in parameters)
+                    {
+                        cmd.Parameters.Add(new SqlParameter(parameter.Key, parameter.Value));
+                    }
+                }
+                var da = new SqlDataAdapter(cmd);
+
+                da.Fill(dt);
+
+                return dt.Rows.Count;
+
+            }
+            catch (Exception ex)
+            {
+                return -1;
             }
             finally
             {
