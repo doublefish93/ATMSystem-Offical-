@@ -187,7 +187,6 @@ namespace ATMSystem.Core
                 }
 
                 return false;
-
             }
             catch (Exception ex)
             {
