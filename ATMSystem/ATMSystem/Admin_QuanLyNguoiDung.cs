@@ -24,7 +24,7 @@ namespace ATMSystem
 
         }
 
-       
+
         private void LoadDanhSachKhachHang()
         {
             var columns = "[User_ID] as [ID],[User_IDCard] as [CMT],[User_Name] as [Họ Tên] ," +
@@ -32,12 +32,11 @@ namespace ATMSystem
                           "[User_Phone] as [Điện Thoại]";
 
             var condition = "User_Delete = 0";
-
             var dt = workContext.GetRecordsInATable(columns, "User", condition, null);
-            if (dt != null)
+            if (dt != null && dt.Rows.Count > 0)
             {
-                gridViewDanhSachKhachHang.DataSource = dt;
 
+                gridViewDanhSachKhachHang.DataSource = dt;
             }
         }
 
@@ -48,13 +47,13 @@ namespace ATMSystem
                 MessageBox.Show("Mời bạn nhập Họ và Tên của Khách Hàng");
                 return false;
             }
-             if (string.IsNullOrEmpty(txtCMT.Text))
+            if (string.IsNullOrEmpty(txtCMT.Text))
             {
                 MessageBox.Show("Mời bạn nhập chứng minh thư của Khách Hàng");
                 return false;
             }
-            
-             if (string.IsNullOrEmpty(txtDiaChi.Text))
+
+            if (string.IsNullOrEmpty(txtDiaChi.Text))
             {
                 MessageBox.Show("Mời bạn nhập Địa Chỉ của Khách Hàng");
                 return false;
@@ -64,7 +63,7 @@ namespace ATMSystem
                 MessageBox.Show("Mời bạn chọn giới tính");
                 return false;
             }
-             if (string.IsNullOrEmpty(txtDienThoai.Text))
+            if (string.IsNullOrEmpty(txtDienThoai.Text))
             {
                 MessageBox.Show("Mời bạn nhập số Điện Thoại của Khách Hàng");
                 return false;
@@ -90,6 +89,7 @@ namespace ATMSystem
             txtHoTen.Text = string.Empty;
             txtDiaChi.Text = string.Empty;
             txtDienThoai.Text = string.Empty;
+            txtID.Text = string.Empty;
             cbbGioiTinh.SelectedIndex = -1;
             btnSubmit.Text = "Thêm Mới";
             lblDemTaiKhoan.Text = string.Empty;
@@ -99,7 +99,9 @@ namespace ATMSystem
         {
             if (btnSubmit.Text.Equals("Cập Nhập"))
             {
-                var parameters = new Dictionary<string, object>()
+                if (Check())
+                {
+                    var parameters = new Dictionary<string, object>()
                     {
                         {"@nIdCardNo", txtCMT.Text},
                         {"@nFullName", txtHoTen.Text},
@@ -107,7 +109,21 @@ namespace ATMSystem
                         {"@nDoB", dtpDob.Value},
                         {"@nPhone", txtDienThoai.Text},
                         {"@nAddress", txtDiaChi.Text},
+                        {"@nID", txtID.Text},
+
                     };
+                    var stt = workContext.ExecuteProcedureParams("sp_edit_user", parameters);
+                    if (stt)
+                    {
+                        MessageBox.Show("Cập Nhập Thành Công");
+                        Clear();
+                        LoadDanhSachKhachHang();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Cập Nhập Thất Bại");
+                    }
+                }
             }
             else
             {
@@ -141,6 +157,7 @@ namespace ATMSystem
         {
             try
             {
+
                 if (e.RowIndex >= 0)
                 {
                     bool gender;
@@ -152,12 +169,54 @@ namespace ATMSystem
                     cbbGioiTinh.Text = gender ? "Nam" : "Nữ";
                     txtDiaChi.Text = row.Cells[5].Value.ToString();
                     txtDienThoai.Text = row.Cells[6].Value.ToString();
+                    txtID.Text = row.Cells[0].Value.ToString();
+
+                    btnSubmit.Text = "Cập Nhập";
+
+                    const string condition = "User_ID = @userId";
+
+                    var parameters = new Dictionary<string, object>()
+                    {
+                        {"@userId",row.Cells[0].Value}
+                    };
+                    var count = workContext.CountRecords(String.Empty, false, "Account", condition, parameters);
+                    if (count >= 0)
+                    {
+                        lblDemTaiKhoan.Text = string.Format("Khách hàng này hiện có {0} tài khoản", count);
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Xảy ra lỗi");
+                    }
+
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("" + ex);
             }
+        }
+
+        private void gridViewDanhSachKhachHang_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            gridViewDanhSachKhachHang.ClearSelection();
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            Clear();
+            gridViewDanhSachKhachHang.ClearSelection();
+        }
+
+        private void btnDispose_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
+
+        private void btnTaoTaiKhoan_Click(object sender, EventArgs e)
+        {
+            new Admin_TaoTaiKhoan(workContext,txtID.Text).Show();
         }
 
     }

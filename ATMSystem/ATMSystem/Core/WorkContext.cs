@@ -249,7 +249,14 @@ namespace ATMSystem.Core
 
                 da.Fill(dt);
 
-                return dt.Rows.Count;
+                var result = 0;
+
+                if (dt.Rows.Count > 0)
+                {
+                    int.TryParse(dt.Rows[0][0].ToString(), out result);
+                    return result;
+                }
+                return result;
 
             }
             catch (Exception ex)

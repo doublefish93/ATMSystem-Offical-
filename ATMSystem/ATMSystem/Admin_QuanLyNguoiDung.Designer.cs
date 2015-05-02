@@ -46,6 +46,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txtTKHoTen = new System.Windows.Forms.TextBox();
             this.btnTimKiem = new System.Windows.Forms.Button();
             this.btnDispose = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
@@ -55,8 +57,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtTKID = new System.Windows.Forms.TextBox();
             this.gridViewDanhSachKhachHang = new System.Windows.Forms.DataGridView();
-            this.txtTKHoTen = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
+            this.txtID = new System.Windows.Forms.TextBox();
+            this.btnTaoTaiKhoan = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewDanhSachKhachHang)).BeginInit();
@@ -73,6 +75,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnTaoTaiKhoan);
+            this.groupBox1.Controls.Add(this.txtID);
             this.groupBox1.Controls.Add(this.txtDiaChi);
             this.groupBox1.Controls.Add(this.lblDemTaiKhoan);
             this.groupBox1.Controls.Add(this.btnCancel);
@@ -115,16 +119,17 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(193, 340);
+            this.btnCancel.Location = new System.Drawing.Point(211, 340);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 36);
             this.btnCancel.TabIndex = 13;
             this.btnCancel.Text = "Hủy";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnSubmit
             // 
-            this.btnSubmit.Location = new System.Drawing.Point(104, 340);
+            this.btnSubmit.Location = new System.Drawing.Point(119, 340);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(75, 36);
             this.btnSubmit.TabIndex = 12;
@@ -240,10 +245,26 @@
             this.groupBox2.Controls.Add(this.gridViewDanhSachKhachHang);
             this.groupBox2.Location = new System.Drawing.Point(310, 43);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(650, 382);
+            this.groupBox2.Size = new System.Drawing.Size(689, 382);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Danh Sách Khách Hàng";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(6, 73);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(46, 13);
+            this.label11.TabIndex = 17;
+            this.label11.Text = "Họ Tên:";
+            // 
+            // txtTKHoTen
+            // 
+            this.txtTKHoTen.Location = new System.Drawing.Point(103, 70);
+            this.txtTKHoTen.Name = "txtTKHoTen";
+            this.txtTKHoTen.Size = new System.Drawing.Size(125, 20);
+            this.txtTKHoTen.TabIndex = 16;
             // 
             // btnTimKiem
             // 
@@ -256,12 +277,13 @@
             // 
             // btnDispose
             // 
-            this.btnDispose.Location = new System.Drawing.Point(564, 352);
+            this.btnDispose.Location = new System.Drawing.Point(586, 352);
             this.btnDispose.Name = "btnDispose";
             this.btnDispose.Size = new System.Drawing.Size(97, 28);
             this.btnDispose.TabIndex = 14;
             this.btnDispose.Text = "Đóng";
             this.btnDispose.UseVisualStyleBackColor = true;
+            this.btnDispose.Click += new System.EventHandler(this.btnDispose_Click);
             // 
             // label4
             // 
@@ -316,37 +338,42 @@
             this.gridViewDanhSachKhachHang.AllowUserToAddRows = false;
             this.gridViewDanhSachKhachHang.AllowUserToDeleteRows = false;
             this.gridViewDanhSachKhachHang.AllowUserToOrderColumns = true;
+            this.gridViewDanhSachKhachHang.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.gridViewDanhSachKhachHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridViewDanhSachKhachHang.Location = new System.Drawing.Point(6, 107);
             this.gridViewDanhSachKhachHang.MultiSelect = false;
             this.gridViewDanhSachKhachHang.Name = "gridViewDanhSachKhachHang";
             this.gridViewDanhSachKhachHang.ReadOnly = true;
             this.gridViewDanhSachKhachHang.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridViewDanhSachKhachHang.Size = new System.Drawing.Size(655, 239);
+            this.gridViewDanhSachKhachHang.Size = new System.Drawing.Size(677, 239);
             this.gridViewDanhSachKhachHang.TabIndex = 0;
             this.gridViewDanhSachKhachHang.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridViewDanhSachKhachHang_CellClick);
+            this.gridViewDanhSachKhachHang.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.gridViewDanhSachKhachHang_DataBindingComplete);
             // 
-            // txtTKHoTen
+            // txtID
             // 
-            this.txtTKHoTen.Location = new System.Drawing.Point(103, 70);
-            this.txtTKHoTen.Name = "txtTKHoTen";
-            this.txtTKHoTen.Size = new System.Drawing.Size(125, 20);
-            this.txtTKHoTen.TabIndex = 16;
+            this.txtID.Enabled = false;
+            this.txtID.Location = new System.Drawing.Point(105, 8);
+            this.txtID.Name = "txtID";
+            this.txtID.Size = new System.Drawing.Size(21, 20);
+            this.txtID.TabIndex = 16;
+            this.txtID.Visible = false;
             // 
-            // label11
+            // btnTaoTaiKhoan
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(6, 73);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(46, 13);
-            this.label11.TabIndex = 17;
-            this.label11.Text = "Họ Tên:";
+            this.btnTaoTaiKhoan.Location = new System.Drawing.Point(10, 340);
+            this.btnTaoTaiKhoan.Name = "btnTaoTaiKhoan";
+            this.btnTaoTaiKhoan.Size = new System.Drawing.Size(88, 36);
+            this.btnTaoTaiKhoan.TabIndex = 17;
+            this.btnTaoTaiKhoan.Text = "Tạo Tài Khoản";
+            this.btnTaoTaiKhoan.UseVisualStyleBackColor = true;
+            this.btnTaoTaiKhoan.Click += new System.EventHandler(this.btnTaoTaiKhoan_Click);
             // 
             // Admin_QuanLyNguoiDung
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(972, 437);
+            this.ClientSize = new System.Drawing.Size(1011, 437);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
@@ -393,5 +420,7 @@
         private System.Windows.Forms.Button btnTimKiem;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtTKHoTen;
+        private System.Windows.Forms.TextBox txtID;
+        private System.Windows.Forms.Button btnTaoTaiKhoan;
     }
 }
