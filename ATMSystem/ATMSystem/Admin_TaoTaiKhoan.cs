@@ -87,9 +87,10 @@ namespace ATMSystem
             {
                 if (!string.IsNullOrEmpty(id))
                 {
+                    var accountNo =  txtAccount.Text.Replace("-","");
                     var parameters = new Dictionary<string, object>()
                     {
-                        {"@nAcc_No",txtAccount.Text},
+                        {"@nAcc_No",accountNo},
                         {"@nAcc_PIN",txtPin.Text},
                         {"@nAccBalance",txtTien.Text},
                         {"@nID",id},
