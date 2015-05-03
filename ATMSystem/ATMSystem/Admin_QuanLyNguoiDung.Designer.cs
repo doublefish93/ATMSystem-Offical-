@@ -30,6 +30,8 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnTaoTaiKhoan = new System.Windows.Forms.Button();
+            this.txtID = new System.Windows.Forms.TextBox();
             this.txtDiaChi = new System.Windows.Forms.TextBox();
             this.lblDemTaiKhoan = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
@@ -57,8 +59,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtTKID = new System.Windows.Forms.TextBox();
             this.gridViewDanhSachKhachHang = new System.Windows.Forms.DataGridView();
-            this.txtID = new System.Windows.Forms.TextBox();
-            this.btnTaoTaiKhoan = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewDanhSachKhachHang)).BeginInit();
@@ -98,6 +98,26 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông Tin Chi Tiết";
+            // 
+            // btnTaoTaiKhoan
+            // 
+            this.btnTaoTaiKhoan.Location = new System.Drawing.Point(10, 340);
+            this.btnTaoTaiKhoan.Name = "btnTaoTaiKhoan";
+            this.btnTaoTaiKhoan.Size = new System.Drawing.Size(88, 36);
+            this.btnTaoTaiKhoan.TabIndex = 17;
+            this.btnTaoTaiKhoan.Text = "Tạo Tài Khoản";
+            this.btnTaoTaiKhoan.UseVisualStyleBackColor = true;
+            this.btnTaoTaiKhoan.Visible = false;
+            this.btnTaoTaiKhoan.Click += new System.EventHandler(this.btnTaoTaiKhoan_Click);
+            // 
+            // txtID
+            // 
+            this.txtID.Enabled = false;
+            this.txtID.Location = new System.Drawing.Point(105, 8);
+            this.txtID.Name = "txtID";
+            this.txtID.Size = new System.Drawing.Size(21, 20);
+            this.txtID.TabIndex = 16;
+            this.txtID.Visible = false;
             // 
             // txtDiaChi
             // 
@@ -349,25 +369,6 @@
             this.gridViewDanhSachKhachHang.TabIndex = 0;
             this.gridViewDanhSachKhachHang.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridViewDanhSachKhachHang_CellClick);
             this.gridViewDanhSachKhachHang.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.gridViewDanhSachKhachHang_DataBindingComplete);
-            // 
-            // txtID
-            // 
-            this.txtID.Enabled = false;
-            this.txtID.Location = new System.Drawing.Point(105, 8);
-            this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(21, 20);
-            this.txtID.TabIndex = 16;
-            this.txtID.Visible = false;
-            // 
-            // btnTaoTaiKhoan
-            // 
-            this.btnTaoTaiKhoan.Location = new System.Drawing.Point(10, 340);
-            this.btnTaoTaiKhoan.Name = "btnTaoTaiKhoan";
-            this.btnTaoTaiKhoan.Size = new System.Drawing.Size(88, 36);
-            this.btnTaoTaiKhoan.TabIndex = 17;
-            this.btnTaoTaiKhoan.Text = "Tạo Tài Khoản";
-            this.btnTaoTaiKhoan.UseVisualStyleBackColor = true;
-            this.btnTaoTaiKhoan.Click += new System.EventHandler(this.btnTaoTaiKhoan_Click);
             // 
             // Admin_QuanLyNguoiDung
             // 

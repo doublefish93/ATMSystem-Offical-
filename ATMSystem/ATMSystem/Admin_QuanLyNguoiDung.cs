@@ -93,6 +93,7 @@ namespace ATMSystem
             cbbGioiTinh.SelectedIndex = -1;
             btnSubmit.Text = "Thêm Mới";
             lblDemTaiKhoan.Text = string.Empty;
+            btnTaoTaiKhoan.Hide(); 
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)
@@ -160,6 +161,7 @@ namespace ATMSystem
 
                 if (e.RowIndex >= 0)
                 {
+                    btnTaoTaiKhoan.Show(); 
                     bool gender;
                     var row = this.gridViewDanhSachKhachHang.Rows[e.RowIndex];
                     txtCMT.Text = row.Cells[1].Value.ToString();
