@@ -73,7 +73,7 @@ namespace ATMSystem
                 return false;
             }
             Decimal.TryParse(txtTien.Text.Trim(), out money);
-            if (money<=0 || money>99999999999)
+            if (money <= 0 || money > 99999999999)
             {
                 MessageBox.Show("Mời bạn nhập chính xác số tiền ban đầu cho khách");
                 return false;

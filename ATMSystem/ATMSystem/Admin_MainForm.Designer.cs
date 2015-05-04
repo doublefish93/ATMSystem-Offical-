@@ -49,10 +49,13 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.gridViewAccount = new System.Windows.Forms.DataGridView();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataSe1)).BeginInit();
             this.panel1.SuspendLayout();
+            this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewAccount)).BeginInit();
             this.SuspendLayout();
             // 
             // stsBar
@@ -70,7 +73,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.menuStrip1.Size = new System.Drawing.Size(898, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(936, 24);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -176,7 +179,7 @@
             this.stsBar});
             this.statusStrip1.Location = new System.Drawing.Point(0, 380);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(898, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(936, 22);
             this.statusStrip1.TabIndex = 3;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -190,7 +193,7 @@
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Location = new System.Drawing.Point(0, 28);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(898, 114);
+            this.panel1.Size = new System.Drawing.Size(936, 114);
             this.panel1.TabIndex = 4;
             // 
             // panel2
@@ -209,16 +212,29 @@
             // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.gridViewAccount);
             this.panel4.Location = new System.Drawing.Point(206, 142);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(692, 235);
+            this.panel4.Size = new System.Drawing.Size(730, 235);
             this.panel4.TabIndex = 6;
+            // 
+            // gridViewAccount
+            // 
+            this.gridViewAccount.AllowUserToAddRows = false;
+            this.gridViewAccount.AllowUserToDeleteRows = false;
+            this.gridViewAccount.AllowUserToOrderColumns = true;
+            this.gridViewAccount.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridViewAccount.Location = new System.Drawing.Point(3, 4);
+            this.gridViewAccount.Name = "gridViewAccount";
+            this.gridViewAccount.ReadOnly = true;
+            this.gridViewAccount.Size = new System.Drawing.Size(724, 228);
+            this.gridViewAccount.TabIndex = 0;
             // 
             // Admin_MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(898, 402);
+            this.ClientSize = new System.Drawing.Size(936, 402);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
@@ -232,6 +248,8 @@
             this.statusStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataSe1)).EndInit();
             this.panel1.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gridViewAccount)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -260,5 +278,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.DataGridView gridViewAccount;
     }
 }

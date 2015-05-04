@@ -19,6 +19,12 @@ namespace ATMSystem.Core
             this.connectString = connectString;
         }
 
+        private string GetUrl()
+        {
+            var url = ConfigurationManager.ConnectionStrings[connectString.url].ConnectionString;
+            return url;
+        }
+
         public DataTable GetRecordsInATable(string columns, string table, string condition, Dictionary<string, object> parameters)
         {
             var dt = new DataTable();
@@ -79,11 +85,73 @@ namespace ATMSystem.Core
 
         }
 
+        public DataTable GetRecordsInnerJoinTwoTable(string columns, string tableFrom, string tableTo, string key,string condition, Dictionary<string,object> parameters)
+        {
+            var dt = new DataTable();
+
+            var url = GetUrl();
+
+            if (string.IsNullOrEmpty(url))
+            {
+                return null;
+            }
+
+            var conn = new SqlConnection(url);
+
+            var query = string.Empty;
+
+            if (string.IsNullOrEmpty(columns))
+            {
+                columns = "*";
+            }
+
+            if (string.IsNullOrEmpty(tableFrom))
+            {
+                return null;
+            }
+            
+            if (string.IsNullOrEmpty(tableTo))
+            {
+                return null;
+            }
+            query = string.Format("Select {0} From {1} INNER JOIN {2} On {1}.{3} = {2}.{3}", columns, tableFrom, tableTo,
+                key);
+        
+            try
+            {
+                conn.Open();
+
+                var cmd = new SqlCommand(query, conn);
+
+                if (parameters != null && !string.IsNullOrEmpty(condition))
+                {
+                    foreach (var parameter in parameters)
+                    {
+                        cmd.Parameters.Add(new SqlParameter(parameter.Key, parameter.Value));
+                    }
+                }
+                var da = new SqlDataAdapter(cmd);
+
+                da.Fill(dt);
+
+                return dt;
+
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
         public DataTable GetById(string columns, string table, string id)
         {
             var dt = new DataTable();
 
-            var url = ConfigurationManager.ConnectionStrings[connectString.url].ConnectionString;
+            var url = GetUrl();
 
             if (string.IsNullOrEmpty(url))
             {
@@ -149,7 +217,7 @@ namespace ATMSystem.Core
 
         public bool ExecuteProcedureParams(string procedureName, Dictionary<string, object> parameters)
         {
-            var url = ConfigurationManager.ConnectionStrings[connectString.url].ConnectionString;
+            var url = GetUrl();
 
             if (string.IsNullOrEmpty(url))
             {
@@ -202,7 +270,7 @@ namespace ATMSystem.Core
         {
             var dt = new DataTable();
 
-            var url = ConfigurationManager.ConnectionStrings[connectString.url].ConnectionString;
+            var url = GetUrl();
 
             if (string.IsNullOrEmpty(url))
             {
@@ -268,5 +336,6 @@ namespace ATMSystem.Core
                 conn.Close();
             }
         }
+ 
     }
 }
