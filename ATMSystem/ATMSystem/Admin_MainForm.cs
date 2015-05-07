@@ -60,5 +60,10 @@ namespace ATMSystem
             new Admin_QuanLyNguoiDung(workContext).ShowDialog();
         }
 
+        private void logsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new Admin_QuanLyTaiKhoan(workContext).ShowDialog();
+        }
+
     }
 }

@@ -50,6 +50,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.gridViewAccount = new System.Windows.Forms.DataGridView();
+            this.báoCáoHệThốngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataSe1)).BeginInit();
@@ -120,7 +121,8 @@
             this.thôngTinNgânHàngToolStripMenuItem,
             this.thôngTinCâyATMToolStripMenuItem,
             this.quảnLýNgườiDùngToolStripMenuItem,
-            this.logsToolStripMenuItem});
+            this.logsToolStripMenuItem,
+            this.báoCáoHệThốngToolStripMenuItem});
             this.thôngKêToolStripMenuItem.Name = "thôngKêToolStripMenuItem";
             this.thôngKêToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
             this.thôngKêToolStripMenuItem.Text = "Quản lý";
@@ -150,7 +152,8 @@
             // 
             this.logsToolStripMenuItem.Name = "logsToolStripMenuItem";
             this.logsToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
-            this.logsToolStripMenuItem.Text = "Báo Cáo Hệ Thống";
+            this.logsToolStripMenuItem.Text = "Quản Lý Tài Khoản";
+            this.logsToolStripMenuItem.Click += new System.EventHandler(this.logsToolStripMenuItem_Click);
             // 
             // thôngTinToolStripMenuItem
             // 
@@ -230,6 +233,12 @@
             this.gridViewAccount.Size = new System.Drawing.Size(724, 228);
             this.gridViewAccount.TabIndex = 0;
             // 
+            // báoCáoHệThốngToolStripMenuItem
+            // 
+            this.báoCáoHệThốngToolStripMenuItem.Name = "báoCáoHệThốngToolStripMenuItem";
+            this.báoCáoHệThốngToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
+            this.báoCáoHệThốngToolStripMenuItem.Text = "Báo Cáo Hệ Thống";
+            // 
             // Admin_MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -279,5 +288,6 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.DataGridView gridViewAccount;
+        private System.Windows.Forms.ToolStripMenuItem báoCáoHệThốngToolStripMenuItem;
     }
 }

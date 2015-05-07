@@ -336,6 +336,32 @@ namespace ATMSystem.Core
                 conn.Close();
             }
         }
- 
+
+        public string SumRecords(string column, string table, string condition, Dictionary<string, object> parameters)
+        {
+            var dt = new DataTable();
+
+            var url = GetUrl();
+
+            if (string.IsNullOrEmpty(url) || string.IsNullOrEmpty(table) || string.IsNullOrEmpty(column))
+            {
+                return string.Empty;
+            }
+
+            var con = new SqlConnection(url);
+
+            var query = string.Format("Select Sum({0}) from {1} where {2}", column, table, condition);
+            try
+            {
+                con.Open();
+                
+                return string.Empty;
+
+            }
+            catch (Exception ex)
+            {
+                return string.Empty;
+            }
+        }
     }
 }
