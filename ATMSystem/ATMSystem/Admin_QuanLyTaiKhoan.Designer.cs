@@ -74,6 +74,7 @@
             this.listAccount.Name = "listAccount";
             this.listAccount.Size = new System.Drawing.Size(190, 342);
             this.listAccount.TabIndex = 7;
+            this.listAccount.SelectedIndexChanged += new System.EventHandler(this.listAccount_SelectedIndexChanged);
             // 
             // label4
             // 

@@ -57,9 +57,30 @@ namespace ATMSystem
                 {
                     for (int i = 0; i < dt.Rows.Count; i++)
                     {
-                        var value = string.Format("{0}", dt.Rows[i]["Acc_No"]);
+                        var value = StringExtensions.ConvertAccountNoToDisplay(dt.Rows[i]["Acc_No"].ToString());
                         listAccount.Items.Add(value);
                     }
+                }
+            }
+        }
+
+        private void listAccount_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            dataGridView1.ClearSelection();
+            var selected = listAccount.SelectedItem;
+            if (selected != null)
+            {
+                var accountNo = StringExtensions.ConvertAccountNoToDb(selected.ToString());
+                var parameters= new Dictionary<string, object>()
+                {
+                    {"@accountNo",accountNo}
+                };
+                var condition = "[Acc_From_ID] = @accountNo Or [Acc_To_ID]= @accountNo";
+                var columns = "[Tran_Type] as [Loại], [Tran_Balance] as [Số Dư] , [Tran_Amount] as [Số Tiền], [Tran_Date] as [Thời Gian] , [Tran_Reason] as [Ghi Chú]";
+                var dt = workContext.GetRecordsInATable(columns, "Transaction", condition, parameters);
+                if (dt != null)
+                {
+                    dataGridView1.DataSource = dt;
                 }
             }
         }

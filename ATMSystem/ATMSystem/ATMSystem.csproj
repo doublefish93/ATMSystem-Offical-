@@ -89,6 +89,7 @@
       <DependentUpon>Admin_TaoTaiKhoan.cs</DependentUpon>
     </Compile>
     <Compile Include="Core\ConnectString.cs" />
+    <Compile Include="Core\StringExtensions.cs" />
     <Compile Include="Core\WorkContext.cs" />
     <Compile Include="DangNhap.cs">
       <SubType>Form</SubType>
@@ -101,10 +102,29 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSe.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Domain\Account.cs" />
     <Compile Include="Domain\BankInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="User.cs" />
+    <Compile Include="User_DoiMaPin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User_DoiMaPin.Designer.cs">
+      <DependentUpon>User_DoiMaPin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User_MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User_MainForm.Designer.cs">
+      <DependentUpon>User_MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User_RutTien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User_RutTien.Designer.cs">
+      <DependentUpon>User_RutTien.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Admin_DoiMatKhau.resx">
       <DependentUpon>Admin_DoiMatKhau.cs</DependentUpon>
     </EmbeddedResource>
@@ -138,6 +158,15 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="User_DoiMaPin.resx">
+      <DependentUpon>User_DoiMaPin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User_MainForm.resx">
+      <DependentUpon>User_MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User_RutTien.resx">
+      <DependentUpon>User_RutTien.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="DataSe.xsc">
       <DependentUpon>DataSe.xsd</DependentUpon>
     </None>

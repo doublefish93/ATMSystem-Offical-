@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Configuration;
 using System.Data.SqlClient;
 using ATMSystem.Core;
+using ATMSystem.Domain;
 
 namespace ATMSystem
 {
@@ -21,21 +22,25 @@ namespace ATMSystem
             this.workContext = workContext;
             InitializeComponent();
             this.CenterToScreen();
+            LoadDanhSachCayATM();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void LoadDanhSachCayATM()
         {
-
+            var condition = "Bank_Status = 1 ";
+            var dt = workContext.GetRecordsInATable(string.Empty, "ATM_Info", condition,null);
+            if (dt != null && dt.Rows.Count > 0)
+            {
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    cbbATM.Items.Add(string.Format("Cây ATM - {0}", dt.Rows[i]["Sys_ID"]));
+                }
+            }
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-
 
             if (string.IsNullOrEmpty(txtTK.Text))
             {
@@ -60,7 +65,7 @@ namespace ATMSystem
             var dt = workContext.GetRecordsInATable(null, "Administrator", conditionWhere,
                 dictionary);
 
-            if (dt == null|| dt.Rows.Count <= 0)
+            if (dt == null || dt.Rows.Count <= 0)
             {
                 MessageBox.Show("Tài khoản hoặc mật khẩu của bạn không đúng!");
                 return;
@@ -76,13 +81,71 @@ namespace ATMSystem
             user.Name = dt.Rows[0][1].ToString();
 
             txtMK.Text = string.Empty;
-            new Admin_MainForm(user, this,workContext).Show();
+            new Admin_MainForm(user, this, workContext).Show();
             this.Visible = false;
         }
 
         private void button2_Click_1(object sender, EventArgs e)
         {
             this.Dispose();
+        }
+
+        private void btnEnter_Click(object sender, EventArgs e)
+        {
+            if (cbbATM.SelectedIndex < 0)
+            {
+                MessageBox.Show("Bạn chưa chọn cây ATM");
+                return;
+            }
+            if (string.IsNullOrEmpty(txtAccount.Text.Trim()))
+            {
+                MessageBox.Show("Mời nhập tài khoản");
+                return;
+            }
+            if (string.IsNullOrEmpty(txtPin.Text.Trim()))
+            {
+                MessageBox.Show("Mời nhập mã PIN");
+                return;
+            }
+            var condition = "Acc_No = @accNo and Acc_PIN = @accPin and Acc_Status=1 and Acc_Delete=0";
+
+            var parameters = new Dictionary<string, object>()
+            {
+                {"@accNo",txtAccount.Text.Trim()},
+                {"@accPin",txtPin.Text.Trim()}
+
+            };
+            var dt = workContext.GetRecordsInATable(string.Empty, "Account", condition, parameters);
+            if (dt != null)
+            {
+                if (dt.Rows.Count > 0)
+                {
+                    int accountId,userId;
+                    decimal balance;
+                    int.TryParse(dt.Rows[0]["Acc_ID"].ToString(), out accountId);
+                    int.TryParse(dt.Rows[0]["User_ID"].ToString(), out userId);
+                    Decimal.TryParse(dt.Rows[0]["Acc_Balance"].ToString(), out balance);
+                    var account = new Account();
+                    
+                    account.AccountId = accountId;
+                    account.UserId = userId;
+                    account.AccountNo = dt.Rows[0]["Acc_No"].ToString();
+                    account.AccountBalance = balance;
+                    account.AccountStatus = true;
+                    account.AcccountDelete = false;
+                    
+                    new User_MainForm(workContext,account).Show();
+                }
+                else
+                {
+                    MessageBox.Show("Bạn Nhập Sai Tài Khoản");
+                    return;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Đăng Nhập Lỗi");
+            }
         }
     }
 }
