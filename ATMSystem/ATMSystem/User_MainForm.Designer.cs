@@ -93,6 +93,7 @@
             this.button5.TabIndex = 5;
             this.button5.Text = "RÚT TIỀN";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button6
             // 
@@ -100,8 +101,9 @@
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(128, 41);
             this.button6.TabIndex = 6;
-            this.button6.Text = "button6";
+            this.button6.Text = "GỬI TIỀN";
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // button7
             // 

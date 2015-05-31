@@ -28,7 +28,7 @@ namespace ATMSystem
         private void LoadDanhSachCayATM()
         {
             var condition = "Bank_Status = 1 ";
-            var dt = workContext.GetRecordsInATable(string.Empty, "ATM_Info", condition,null);
+            var dt = workContext.GetRecordsInATable(string.Empty, "ATM_Info", condition, null);
             if (dt != null && dt.Rows.Count > 0)
             {
                 for (int i = 0; i < dt.Rows.Count; i++)
@@ -36,6 +36,7 @@ namespace ATMSystem
                     cbbATM.Items.Add(string.Format("Cây ATM - {0}", dt.Rows[i]["Sys_ID"]));
                 }
             }
+
         }
 
 
@@ -120,21 +121,42 @@ namespace ATMSystem
             {
                 if (dt.Rows.Count > 0)
                 {
-                    int accountId,userId;
+                    int accountId, userId;
                     decimal balance;
                     int.TryParse(dt.Rows[0]["Acc_ID"].ToString(), out accountId);
                     int.TryParse(dt.Rows[0]["User_ID"].ToString(), out userId);
                     Decimal.TryParse(dt.Rows[0]["Acc_Balance"].ToString(), out balance);
                     var account = new Account();
-                    
+
                     account.AccountId = accountId;
                     account.UserId = userId;
                     account.AccountNo = dt.Rows[0]["Acc_No"].ToString();
                     account.AccountBalance = balance;
                     account.AccountStatus = true;
                     account.AcccountDelete = false;
-                    
-                    new User_MainForm(workContext,account).Show();
+
+                    var selectedItem = cbbATM.SelectedItem.ToString();
+
+                    if (!selectedItem.Contains("-"))
+                    {
+                        return;
+                    }
+                    selectedItem = selectedItem.Replace("-", " ");
+
+                    var stringArray = selectedItem.Split(new[] { " " }, StringSplitOptions.RemoveEmptyEntries);
+
+                    var id = stringArray.LastOrDefault();
+
+                    var dtAtm = workContext.GetById(string.Empty, "ATM_Info", id);
+                    if (dtAtm == null)
+                    {
+                        MessageBox.Show("Cây ATM bị hỏng");
+                        return;
+                    }
+                    var Atm = ConvertFromTableToEntity(dtAtm);
+                    this.Visible = false;
+                    new User_MainForm(workContext, account,Atm).Show();
+
                 }
                 else
                 {
@@ -147,5 +169,49 @@ namespace ATMSystem
                 MessageBox.Show("Đăng Nhập Lỗi");
             }
         }
+
+        private ATMInfor ConvertFromTableToEntity(DataTable dt)
+        {
+            var entity = new ATMInfor();
+            if (dt == null || dt.Rows.Count <= 0)
+            {
+                return entity;
+            }
+            int id, sysWt, sysDt;
+            decimal sysWa, sysDa, sysMat,sysAim, sysFc1, sysFc2, sysFc3, sysFc4, sysFc5, sysFc6, totalMoney;
+
+            int.TryParse(dt.Rows[0]["Sys_ID"].ToString(), out id);
+            decimal.TryParse(dt.Rows[0]["Sys_WA"].ToString(), out sysWa);
+            decimal.TryParse(dt.Rows[0]["Sys_DA"].ToString(), out sysDa);
+            int.TryParse(dt.Rows[0]["Sys_WT"].ToString(), out sysWt);
+            int.TryParse(dt.Rows[0]["Sys_DT"].ToString(), out sysDt);
+            decimal.TryParse(dt.Rows[0]["Sys_MAT"].ToString(), out sysMat);
+            decimal.TryParse(dt.Rows[0]["Sys_AIM"].ToString(), out sysAim);
+            decimal.TryParse(dt.Rows[0]["Sys_FC1"].ToString(), out sysFc1);
+            decimal.TryParse(dt.Rows[0]["Sys_FC2"].ToString(), out sysFc2);
+            decimal.TryParse(dt.Rows[0]["Sys_FC3"].ToString(), out sysFc3);
+            decimal.TryParse(dt.Rows[0]["Sys_FC4"].ToString(), out sysFc4);
+            decimal.TryParse(dt.Rows[0]["Sys_FC5"].ToString(), out sysFc5);
+            decimal.TryParse(dt.Rows[0]["Sys_FC6"].ToString(), out sysFc6);
+            decimal.TryParse(dt.Rows[0]["Sys_TotalMoney"].ToString(), out totalMoney);
+
+            entity.Id = id;
+            entity.Sys_WA = sysWa;
+            entity.Sys_DA = sysDa;
+            entity.Sys_WT = sysWt;
+            entity.Sys_DT = sysDt;
+            entity.Sys_MAT = sysMat;
+            entity.Sys_AIM = sysAim;
+            entity.Sys_FC1 = sysFc1;
+            entity.Sys_FC2 = sysFc2;
+            entity.Sys_FC3 = sysFc3;
+            entity.Sys_FC4 = sysFc4;
+            entity.Sys_FC5 = sysFc5;
+            entity.Sys_FC6 = sysFc6;
+            entity.Sys_TotalMoney = totalMoney;
+
+            return entity;
+        }
     }
+
 }

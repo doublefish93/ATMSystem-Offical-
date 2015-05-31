@@ -23,6 +23,7 @@ namespace ATMSystem.Core
         {
             var url = ConfigurationManager.ConnectionStrings[connectString.url].ConnectionString;
             return url;
+            
         }
 
         public DataTable GetRecordsInATable(string columns, string table, string condition, Dictionary<string, object> parameters)

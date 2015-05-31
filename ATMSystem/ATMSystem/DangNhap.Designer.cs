@@ -38,13 +38,13 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.cbbATM = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.btnEnter = new System.Windows.Forms.Button();
             this.txtPin = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtAccount = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.cbbATM = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -158,6 +158,23 @@
             this.tabPage2.Text = "User";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // cbbATM
+            // 
+            this.cbbATM.FormattingEnabled = true;
+            this.cbbATM.Location = new System.Drawing.Point(192, 41);
+            this.cbbATM.Name = "cbbATM";
+            this.cbbATM.Size = new System.Drawing.Size(200, 21);
+            this.cbbATM.TabIndex = 6;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(252, 3);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(79, 13);
+            this.label6.TabIndex = 5;
+            this.label6.Text = "Chọn Cây ATM";
+            // 
             // btnEnter
             // 
             this.btnEnter.Location = new System.Drawing.Point(256, 283);
@@ -177,6 +194,7 @@
             this.txtPin.PasswordChar = '*';
             this.txtPin.Size = new System.Drawing.Size(107, 26);
             this.txtPin.TabIndex = 3;
+            this.txtPin.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label5
             // 
@@ -195,6 +213,7 @@
             this.txtAccount.Name = "txtAccount";
             this.txtAccount.Size = new System.Drawing.Size(326, 32);
             this.txtAccount.TabIndex = 1;
+            this.txtAccount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label4
             // 
@@ -204,23 +223,6 @@
             this.label4.Size = new System.Drawing.Size(122, 13);
             this.label4.TabIndex = 0;
             this.label4.Text = "Mời bạn nhập tài khoản ";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(252, 3);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(79, 13);
-            this.label6.TabIndex = 5;
-            this.label6.Text = "Chọn Cây ATM";
-            // 
-            // cbbATM
-            // 
-            this.cbbATM.FormattingEnabled = true;
-            this.cbbATM.Location = new System.Drawing.Point(192, 41);
-            this.cbbATM.Name = "cbbATM";
-            this.cbbATM.Size = new System.Drawing.Size(200, 21);
-            this.cbbATM.TabIndex = 6;
             // 
             // DangNhap
             // 
