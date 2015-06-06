@@ -41,5 +41,10 @@ namespace ATMSystem
         {
             new User_GuiTien(workContext,account,atm).Show();
         }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            new User_ChuyenTien(workContext, atm, account).Show();
+        }
     }
 }

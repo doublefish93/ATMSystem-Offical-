@@ -64,7 +64,7 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(128, 41);
             this.button2.TabIndex = 2;
-            this.button2.Text = "button2";
+            this.button2.Text = "TRA CỨU TÀI KHOẢN";
             this.button2.UseVisualStyleBackColor = true;
             // 
             // button3
@@ -111,8 +111,9 @@
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(128, 41);
             this.button7.TabIndex = 7;
-            this.button7.Text = "button7";
+            this.button7.Text = "CHUYỂN TIỀN";
             this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // button8
             // 
