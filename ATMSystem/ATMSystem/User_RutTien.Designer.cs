@@ -197,6 +197,7 @@
             this.btnOther.TabIndex = 8;
             this.btnOther.Text = "Số Khác";
             this.btnOther.UseVisualStyleBackColor = true;
+            this.btnOther.Click += new System.EventHandler(this.btnOther_Click);
             // 
             // User_RutTien
             // 

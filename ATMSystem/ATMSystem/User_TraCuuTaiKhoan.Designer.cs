@@ -30,28 +30,32 @@
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtTen = new System.Windows.Forms.Label();
             this.lblRutTien = new System.Windows.Forms.Label();
             this.lblTongTienRut = new System.Windows.Forms.Label();
-            this.lblSoTienGui = new System.Windows.Forms.Label();
+            this.lblSoLanGui = new System.Windows.Forms.Label();
             this.lblTongTienGui = new System.Windows.Forms.Label();
             this.lblSoDu = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
+            this.txtTen = new System.Windows.Forms.Label();
+            this.lblWithDraw = new System.Windows.Forms.Label();
+            this.lblDepositMonth = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lblDepositMonth);
+            this.groupBox1.Controls.Add(this.lblWithDraw);
             this.groupBox1.Controls.Add(this.lblSoDu);
             this.groupBox1.Controls.Add(this.lblTongTienGui);
-            this.groupBox1.Controls.Add(this.lblSoTienGui);
+            this.groupBox1.Controls.Add(this.lblSoLanGui);
             this.groupBox1.Controls.Add(this.lblTongTienRut);
             this.groupBox1.Controls.Add(this.lblRutTien);
             this.groupBox1.Controls.Add(this.txtTen);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(12, 29);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(556, 264);
+            this.groupBox1.Size = new System.Drawing.Size(594, 317);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
@@ -63,15 +67,6 @@
             this.label1.Size = new System.Drawing.Size(97, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Tra Cứu Tài Khoản";
-            // 
-            // txtTen
-            // 
-            this.txtTen.AutoSize = true;
-            this.txtTen.Location = new System.Drawing.Point(30, 64);
-            this.txtTen.Name = "txtTen";
-            this.txtTen.Size = new System.Drawing.Size(35, 13);
-            this.txtTen.TabIndex = 1;
-            this.txtTen.Text = "label2";
             // 
             // lblRutTien
             // 
@@ -91,14 +86,14 @@
             this.lblTongTienRut.TabIndex = 3;
             this.lblTongTienRut.Text = "label4";
             // 
-            // lblSoTienGui
+            // lblSoLanGui
             // 
-            this.lblSoTienGui.AutoSize = true;
-            this.lblSoTienGui.Location = new System.Drawing.Point(292, 110);
-            this.lblSoTienGui.Name = "lblSoTienGui";
-            this.lblSoTienGui.Size = new System.Drawing.Size(35, 13);
-            this.lblSoTienGui.TabIndex = 4;
-            this.lblSoTienGui.Text = "label5";
+            this.lblSoLanGui.AutoSize = true;
+            this.lblSoLanGui.Location = new System.Drawing.Point(292, 110);
+            this.lblSoLanGui.Name = "lblSoLanGui";
+            this.lblSoLanGui.Size = new System.Drawing.Size(35, 13);
+            this.lblSoLanGui.TabIndex = 4;
+            this.lblSoLanGui.Text = "label5";
             // 
             // lblTongTienGui
             // 
@@ -112,7 +107,7 @@
             // lblSoDu
             // 
             this.lblSoDu.AutoSize = true;
-            this.lblSoDu.Location = new System.Drawing.Point(30, 222);
+            this.lblSoDu.Location = new System.Drawing.Point(30, 287);
             this.lblSoDu.Name = "lblSoDu";
             this.lblSoDu.Size = new System.Drawing.Size(35, 13);
             this.lblSoDu.TabIndex = 6;
@@ -120,7 +115,7 @@
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(451, 310);
+            this.btnClose.Location = new System.Drawing.Point(489, 362);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(117, 32);
             this.btnClose.TabIndex = 1;
@@ -128,11 +123,38 @@
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
+            // txtTen
+            // 
+            this.txtTen.AutoSize = true;
+            this.txtTen.Location = new System.Drawing.Point(30, 64);
+            this.txtTen.Name = "txtTen";
+            this.txtTen.Size = new System.Drawing.Size(35, 13);
+            this.txtTen.TabIndex = 1;
+            this.txtTen.Text = "label2";
+            // 
+            // lblWithDraw
+            // 
+            this.lblWithDraw.AutoSize = true;
+            this.lblWithDraw.Location = new System.Drawing.Point(30, 200);
+            this.lblWithDraw.Name = "lblWithDraw";
+            this.lblWithDraw.Size = new System.Drawing.Size(53, 13);
+            this.lblWithDraw.TabIndex = 7;
+            this.lblWithDraw.Text = "lblDeposit";
+            // 
+            // lblDepositMonth
+            // 
+            this.lblDepositMonth.AutoSize = true;
+            this.lblDepositMonth.Location = new System.Drawing.Point(30, 242);
+            this.lblDepositMonth.Name = "lblDepositMonth";
+            this.lblDepositMonth.Size = new System.Drawing.Size(53, 13);
+            this.lblDepositMonth.TabIndex = 8;
+            this.lblDepositMonth.Text = "lblDeposit";
+            // 
             // User_TraCuuTaiKhoan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(580, 354);
+            this.ClientSize = new System.Drawing.Size(618, 406);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.groupBox1);
             this.Name = "User_TraCuuTaiKhoan";
@@ -148,11 +170,13 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label lblSoDu;
         private System.Windows.Forms.Label lblTongTienGui;
-        private System.Windows.Forms.Label lblSoTienGui;
+        private System.Windows.Forms.Label lblSoLanGui;
         private System.Windows.Forms.Label lblTongTienRut;
         private System.Windows.Forms.Label lblRutTien;
-        private System.Windows.Forms.Label txtTen;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.Label txtTen;
+        private System.Windows.Forms.Label lblWithDraw;
+        private System.Windows.Forms.Label lblDepositMonth;
     }
 }

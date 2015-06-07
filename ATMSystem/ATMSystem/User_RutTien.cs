@@ -44,13 +44,18 @@ namespace ATMSystem
         private void LoadThongTinTaiKhoan()
         {
             lblSoTaiKhoan.Text = StringExtensions.ConvertAccountNoToDisplay(account.AccountNo);
+            
             lblSoDu.Text = account.AccountBalance.ToString(CultureInfo.InvariantCulture);
-            var condition = string.Format("Tran_Type=1 and Acc_From_ID=@accId ");
+
+            var condition = string.Format("Tran_Date >= DATEADD(day, DATEDIFF(day, 0, getdate()), 0) and Tran_Type=1 and Acc_From_ID=@accId ");
             var parameters = new Dictionary<string, object>()
             {
                 {"@accId",account.AccountId}
             };
-            // var dt = workContext.CountRecords("*", false, "Transaction", condition, null);
+
+            var times = workContext.CountRecords("*", false, "Transaction", condition, parameters);
+
+            lblSoLanRut.Text = times.ToString();
         }
 
         private bool RutTien(string amount)
@@ -72,6 +77,17 @@ namespace ATMSystem
                 MessageBox.Show("Cây ATM hết tiền mời bạn chọn cây ATM khác");
                 return false;
             }
+
+            int times ;
+            
+            int.TryParse(lblSoLanRut.Text, out times);
+
+            if (times >= atm.Sys_WT)
+            {
+                MessageBox.Show(string.Format("Bạn đã quá {0} lần rút tiền trong ngày theo quy định",atm.Sys_WT));
+                return false;
+            }
+
             var parameters = new Dictionary<string, object>()
             {
                 {"@bType", 1},
@@ -144,6 +160,7 @@ namespace ATMSystem
             {
                 MessageBox.Show("Rút tiền thành công");
             }
+            this.Dispose();
         }
 
         private void btnFC4_Click(object sender, EventArgs e)
@@ -153,7 +170,7 @@ namespace ATMSystem
             {
                 MessageBox.Show("Rút tiền thành công");
             }
-
+            this.Dispose();
         }
 
         private void btnFC5_Click(object sender, EventArgs e)
@@ -163,7 +180,7 @@ namespace ATMSystem
             {
                 MessageBox.Show("Rút tiền thành công");
             }
-
+            this.Dispose();
         }
 
         private void btnFC6_Click(object sender, EventArgs e)
@@ -173,7 +190,7 @@ namespace ATMSystem
             {
                 MessageBox.Show("Rút tiền thành công");
             }
-
+            this.Dispose();
         }
 
         private void btnFC3_Click(object sender, EventArgs e)
@@ -183,11 +200,17 @@ namespace ATMSystem
             {
                 MessageBox.Show("Rút tiền thành công");
             }
+            this.Dispose();
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
             this.Dispose();
+        }
+
+        private void btnOther_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

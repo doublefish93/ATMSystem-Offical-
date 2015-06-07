@@ -37,7 +37,12 @@ namespace ATMSystem
                 MessageBox.Show("Mời bạn nhập số tiền");
                 return;
             }
-
+            if (txtTaiKhoan.Text.Equals(account.AccountNo))
+            {
+                MessageBox.Show("Mời bạn nhập số tài khoản bạn muốn gửi");
+                return;
+            }
+            
             decimal money;
 
             decimal.TryParse(txtTien.Text, out money);
@@ -53,7 +58,11 @@ namespace ATMSystem
             if (money > account.AccountBalance)
             {
                 MessageBox.Show("Bạn Không Đủ Tiền");
-
+                return;
+            }
+            if (money % atmSystem.Sys_AIM != 0)
+            {
+                MessageBox.Show("Số tiền bạn nhập phải chia hết cho "+atmSystem.Sys_AIM);
                 return;
             }
             var condition = "Acc_No=@accNo and Acc_Status=1 and Acc_Delete=0";

@@ -298,8 +298,8 @@ namespace ATMSystem.Core
             }
 
             query = string.IsNullOrEmpty(condition) ?
-                  string.Format("Select Count({0}) from {1}", column, table)
-                : string.Format("Select Count({0}) from {1} where {2}", column, table, condition);
+                  string.Format("Select Count({0}) from [{1}]", column, table)
+                : string.Format("Select Count({0}) from [{1}] where {2}", column, table, condition);
 
             try
             {
@@ -351,11 +351,29 @@ namespace ATMSystem.Core
 
             var con = new SqlConnection(url);
 
-            var query = string.Format("Select Sum({0}) from {1} where {2}", column, table, condition);
+            var query = string.Format("Select Sum({0}) from [{1}] where {2}", column, table, condition);
             try
             {
-                con.Open();
-                
+                var cmd = new SqlCommand(query, con);
+
+                if (parameters != null && !string.IsNullOrEmpty(condition))
+                {
+                    foreach (var parameter in parameters)
+                    {
+                        cmd.Parameters.Add(new SqlParameter(parameter.Key, parameter.Value));
+                    }
+                }
+                var da = new SqlDataAdapter(cmd);
+
+                da.Fill(dt);
+
+                var result = 0;
+
+                if (dt.Rows.Count > 0)
+                {
+                    return dt.Rows[0][0].ToString();
+
+                }
                 return string.Empty;
 
             }
