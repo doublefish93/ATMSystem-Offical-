@@ -19,25 +19,43 @@ namespace ATMSystem
             this.workContext = workContext;
             InitializeComponent();
             this.CenterToScreen();
-            LoadDanhSachKhachHang();
+            LoadDanhSachKhachHang(string.Empty,string.Empty,string.Empty,string.Empty);
             lblDemTaiKhoan.Text = string.Empty;
 
         }
 
 
-        private void LoadDanhSachKhachHang()
+        private void LoadDanhSachKhachHang(string id,string sodienthoai,string hoten,string cmt)
         {
             var columns = "[User_ID] as [ID],[User_IDCard] as [CMT],[User_Name] as [Họ Tên] ," +
                           "[User_Dob] as [Ngày Sinh],[User_Gender] as [Giới Tính] , [User_Address] as [Địa Chỉ]," +
                           "[User_Phone] as [Điện Thoại]";
 
-            var condition = "User_Delete = 0";
-            var dt = workContext.GetRecordsInATable(columns, "User", condition, null);
-            if (dt != null && dt.Rows.Count > 0)
-            {
+            var condition = "User_Delete = 0 ";
 
-                gridViewDanhSachKhachHang.DataSource = dt;
+            if (!string.IsNullOrEmpty(id))
+            {
+                condition += " And [User_ID]=" + id+ " ";
             }
+
+            if (!string.IsNullOrEmpty(sodienthoai))
+            {
+                condition += " And [User_IDCard] like '% " + sodienthoai + " %' ";
+            }
+
+            if (!string.IsNullOrEmpty(hoten))
+            {
+                condition += " And [User_Name] like '%" + hoten + "%' ";
+            }
+
+            if (!string.IsNullOrEmpty(cmt))
+            {
+                condition += " And [User_IDCard] like '%" + cmt + "%'";
+            }
+
+            var dt = workContext.GetRecordsInATable(columns, "User", condition, null);
+
+            gridViewDanhSachKhachHang.DataSource = dt;
         }
 
         private bool Check()
@@ -118,7 +136,7 @@ namespace ATMSystem
                     {
                         MessageBox.Show("Cập Nhập Thành Công");
                         Clear();
-                        LoadDanhSachKhachHang();
+                        LoadDanhSachKhachHang(string.Empty, string.Empty, string.Empty, string.Empty);
                     }
                     else
                     {
@@ -144,7 +162,7 @@ namespace ATMSystem
                     {
                         MessageBox.Show("Thêm Mới Thành Công");
                         Clear();
-                        LoadDanhSachKhachHang();
+                        LoadDanhSachKhachHang(string.Empty, string.Empty, string.Empty, string.Empty);
                     }
                     else
                     {
@@ -219,6 +237,11 @@ namespace ATMSystem
         private void btnTaoTaiKhoan_Click(object sender, EventArgs e)
         {
             new Admin_TaoTaiKhoan(workContext,txtID.Text).Show();
+        }
+
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+            LoadDanhSachKhachHang(txtTKID.Text.Trim(),txtTKDienThoai.Text.Trim(),txtTKHoTen.Text.Trim(),txtTKCMT.Text.Trim());
         }
 
     }

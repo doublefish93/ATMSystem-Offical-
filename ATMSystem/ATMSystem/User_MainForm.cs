@@ -51,5 +51,10 @@ namespace ATMSystem
         {
             new User_TraCuuTaiKhoan(workContext, account).Show();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            new User_LichSuGiaoDich(workContext, account).Show();
+        }
     }
 }

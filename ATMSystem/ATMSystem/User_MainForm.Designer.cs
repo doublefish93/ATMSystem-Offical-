@@ -74,8 +74,9 @@
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(128, 41);
             this.button3.TabIndex = 3;
-            this.button3.Text = "button3";
+            this.button3.Text = "LỊCH SỬ GIAO DỊCH";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button4
             // 
