@@ -160,24 +160,28 @@
             // 
             // cbbATM
             // 
+            this.cbbATM.BackColor = System.Drawing.Color.AliceBlue;
+            this.cbbATM.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbbATM.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbATM.FormattingEnabled = true;
-            this.cbbATM.Location = new System.Drawing.Point(192, 41);
+            this.cbbATM.Location = new System.Drawing.Point(137, 56);
             this.cbbATM.Name = "cbbATM";
-            this.cbbATM.Size = new System.Drawing.Size(200, 21);
+            this.cbbATM.Size = new System.Drawing.Size(326, 32);
             this.cbbATM.TabIndex = 6;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(252, 3);
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(231, 14);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(79, 13);
+            this.label6.Size = new System.Drawing.Size(139, 24);
             this.label6.TabIndex = 5;
             this.label6.Text = "Chọn Cây ATM";
             // 
             // btnEnter
             // 
-            this.btnEnter.Location = new System.Drawing.Point(256, 283);
+            this.btnEnter.Location = new System.Drawing.Point(254, 295);
             this.btnEnter.Name = "btnEnter";
             this.btnEnter.Size = new System.Drawing.Size(75, 31);
             this.btnEnter.TabIndex = 4;
@@ -187,8 +191,9 @@
             // 
             // txtPin
             // 
+            this.txtPin.BackColor = System.Drawing.Color.AliceBlue;
             this.txtPin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPin.Location = new System.Drawing.Point(237, 224);
+            this.txtPin.Location = new System.Drawing.Point(235, 248);
             this.txtPin.MaxLength = 4;
             this.txtPin.Name = "txtPin";
             this.txtPin.PasswordChar = '*';
@@ -199,16 +204,18 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(234, 189);
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(204, 212);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(110, 13);
+            this.label5.Size = new System.Drawing.Size(192, 24);
             this.label5.TabIndex = 2;
             this.label5.Text = "Mời bạn nhập mã PIN";
             // 
             // txtAccount
             // 
+            this.txtAccount.BackColor = System.Drawing.Color.AliceBlue;
             this.txtAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAccount.Location = new System.Drawing.Point(139, 128);
+            this.txtAccount.Location = new System.Drawing.Point(137, 152);
             this.txtAccount.MaxLength = 16;
             this.txtAccount.Name = "txtAccount";
             this.txtAccount.Size = new System.Drawing.Size(326, 32);
@@ -218,9 +225,10 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(234, 96);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(195, 113);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(122, 13);
+            this.label4.Size = new System.Drawing.Size(211, 24);
             this.label4.TabIndex = 0;
             this.label4.Text = "Mời bạn nhập tài khoản ";
             // 
@@ -228,10 +236,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.GhostWhite;
             this.ClientSize = new System.Drawing.Size(628, 389);
             this.Controls.Add(this.tabControl1);
             this.Name = "DangNhap";
-            this.Text = "DangNhap";
+            this.Text = "Đăng Nhập";
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();

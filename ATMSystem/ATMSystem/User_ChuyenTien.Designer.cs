@@ -48,7 +48,7 @@
             this.groupBox1.Controls.Add(this.txtTaiKhoan);
             this.groupBox1.Location = new System.Drawing.Point(139, 58);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(358, 288);
+            this.groupBox1.Size = new System.Drawing.Size(369, 288);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
@@ -75,28 +75,30 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(96, 152);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(67, 144);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(164, 13);
+            this.label2.Size = new System.Drawing.Size(240, 20);
             this.label2.TabIndex = 3;
             this.label2.Text = "Nhập Số Tiền Bạn Muốn Chuyển";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(81, 46);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(6, 40);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(200, 13);
+            this.label1.Size = new System.Drawing.Size(353, 24);
             this.label1.TabIndex = 2;
             this.label1.Text = "Nhập Tài Khoản Bạn Muốn Chuyển Tiền";
             // 
             // txtTien
             // 
             this.txtTien.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTien.Location = new System.Drawing.Point(52, 179);
+            this.txtTien.Location = new System.Drawing.Point(40, 180);
             this.txtTien.MaxLength = 9;
             this.txtTien.Name = "txtTien";
-            this.txtTien.Size = new System.Drawing.Size(272, 29);
+            this.txtTien.Size = new System.Drawing.Size(289, 29);
             this.txtTien.TabIndex = 1;
             this.txtTien.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -117,7 +119,7 @@
             this.ClientSize = new System.Drawing.Size(649, 407);
             this.Controls.Add(this.groupBox1);
             this.Name = "User_ChuyenTien";
-            this.Text = "User_ChuyenTien";
+            this.Text = "CHUYỂN TIỀN";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
