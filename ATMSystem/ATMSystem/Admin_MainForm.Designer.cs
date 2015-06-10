@@ -47,44 +47,45 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.dataSe1 = new ATMSystem.DataSe();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblTotalCustomer = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.lblTotalMoney = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.lblTotalTrans = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.lblTransMonth = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.lblMoney = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lblNewCustomer = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataSe1)).BeginInit();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.panel4.SuspendLayout();
-            this.panel5.SuspendLayout();
-            this.panel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            this.panel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.SuspendLayout();
             // 
             // stsBar
@@ -237,6 +238,15 @@
             this.panel1.Size = new System.Drawing.Size(232, 100);
             this.panel1.TabIndex = 10;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::ATMSystem.Properties.Resources.user;
+            this.pictureBox1.Location = new System.Drawing.Point(167, 19);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(53, 50);
+            this.pictureBox1.TabIndex = 13;
+            this.pictureBox1.TabStop = false;
+            // 
             // lblTotalCustomer
             // 
             this.lblTotalCustomer.AutoSize = true;
@@ -269,6 +279,15 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(232, 98);
             this.panel2.TabIndex = 14;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::ATMSystem.Properties.Resources.money;
+            this.pictureBox2.Location = new System.Drawing.Point(184, 19);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(43, 50);
+            this.pictureBox2.TabIndex = 13;
+            this.pictureBox2.TabStop = false;
             // 
             // lblTotalMoney
             // 
@@ -303,6 +322,15 @@
             this.panel3.Size = new System.Drawing.Size(232, 98);
             this.panel3.TabIndex = 15;
             // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::ATMSystem.Properties.Resources.router;
+            this.pictureBox3.Location = new System.Drawing.Point(176, 19);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(53, 50);
+            this.pictureBox3.TabIndex = 13;
+            this.pictureBox3.TabStop = false;
+            // 
             // lblTotalTrans
             // 
             this.lblTotalTrans.AutoSize = true;
@@ -329,23 +357,32 @@
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(53)))), ((int)(((byte)(60)))));
             this.panel4.Controls.Add(this.pictureBox4);
-            this.panel4.Controls.Add(this.label2);
+            this.panel4.Controls.Add(this.lblTransMonth);
             this.panel4.Controls.Add(this.label5);
             this.panel4.Location = new System.Drawing.Point(340, 248);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(232, 98);
             this.panel4.TabIndex = 18;
             // 
-            // label2
+            // pictureBox4
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(41, 53);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(52, 29);
-            this.label2.TabIndex = 12;
-            this.label2.Text = "300";
+            this.pictureBox4.Image = global::ATMSystem.Properties.Resources.card1;
+            this.pictureBox4.Location = new System.Drawing.Point(162, 35);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(67, 60);
+            this.pictureBox4.TabIndex = 13;
+            this.pictureBox4.TabStop = false;
+            // 
+            // lblTransMonth
+            // 
+            this.lblTransMonth.AutoSize = true;
+            this.lblTransMonth.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTransMonth.ForeColor = System.Drawing.Color.White;
+            this.lblTransMonth.Location = new System.Drawing.Point(41, 53);
+            this.lblTransMonth.Name = "lblTransMonth";
+            this.lblTransMonth.Size = new System.Drawing.Size(52, 29);
+            this.lblTransMonth.TabIndex = 12;
+            this.lblTransMonth.Text = "300";
             // 
             // label5
             // 
@@ -362,23 +399,32 @@
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(91)))), ((int)(((byte)(87)))));
             this.panel5.Controls.Add(this.pictureBox5);
-            this.panel5.Controls.Add(this.label6);
+            this.panel5.Controls.Add(this.lblMoney);
             this.panel5.Controls.Add(this.label7);
             this.panel5.Location = new System.Drawing.Point(658, 248);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(232, 98);
             this.panel5.TabIndex = 17;
             // 
-            // label6
+            // pictureBox5
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(41, 53);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(91, 29);
-            this.label6.TabIndex = 12;
-            this.label6.Text = "100000";
+            this.pictureBox5.Image = global::ATMSystem.Properties.Resources.card;
+            this.pictureBox5.Location = new System.Drawing.Point(173, 40);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(56, 50);
+            this.pictureBox5.TabIndex = 13;
+            this.pictureBox5.TabStop = false;
+            // 
+            // lblMoney
+            // 
+            this.lblMoney.AutoSize = true;
+            this.lblMoney.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMoney.ForeColor = System.Drawing.Color.White;
+            this.lblMoney.Location = new System.Drawing.Point(41, 53);
+            this.lblMoney.Name = "lblMoney";
+            this.lblMoney.Size = new System.Drawing.Size(91, 29);
+            this.lblMoney.TabIndex = 12;
+            this.lblMoney.Text = "100000";
             // 
             // label7
             // 
@@ -395,62 +441,12 @@
             // 
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(124)))), ((int)(((byte)(182)))));
             this.panel6.Controls.Add(this.pictureBox6);
-            this.panel6.Controls.Add(this.label8);
+            this.panel6.Controls.Add(this.lblNewCustomer);
             this.panel6.Controls.Add(this.label9);
             this.panel6.Location = new System.Drawing.Point(12, 248);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(232, 100);
             this.panel6.TabIndex = 16;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(41, 53);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(39, 29);
-            this.label8.TabIndex = 12;
-            this.label8.Text = "16";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Cursor = System.Windows.Forms.Cursors.No;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(13, 10);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(118, 18);
-            this.label9.TabIndex = 11;
-            this.label9.Text = "Khách Hàng Mới";
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = global::ATMSystem.Properties.Resources.card1;
-            this.pictureBox4.Location = new System.Drawing.Point(162, 35);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(67, 60);
-            this.pictureBox4.TabIndex = 13;
-            this.pictureBox4.TabStop = false;
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Image = global::ATMSystem.Properties.Resources.card;
-            this.pictureBox5.Location = new System.Drawing.Point(173, 40);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(56, 50);
-            this.pictureBox5.TabIndex = 13;
-            this.pictureBox5.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::ATMSystem.Properties.Resources.router;
-            this.pictureBox3.Location = new System.Drawing.Point(176, 19);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(53, 50);
-            this.pictureBox3.TabIndex = 13;
-            this.pictureBox3.TabStop = false;
             // 
             // pictureBox6
             // 
@@ -461,29 +457,45 @@
             this.pictureBox6.TabIndex = 13;
             this.pictureBox6.TabStop = false;
             // 
-            // pictureBox2
+            // lblNewCustomer
             // 
-            this.pictureBox2.Image = global::ATMSystem.Properties.Resources.money;
-            this.pictureBox2.Location = new System.Drawing.Point(184, 19);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(43, 50);
-            this.pictureBox2.TabIndex = 13;
-            this.pictureBox2.TabStop = false;
+            this.lblNewCustomer.AutoSize = true;
+            this.lblNewCustomer.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNewCustomer.ForeColor = System.Drawing.Color.White;
+            this.lblNewCustomer.Location = new System.Drawing.Point(41, 53);
+            this.lblNewCustomer.Name = "lblNewCustomer";
+            this.lblNewCustomer.Size = new System.Drawing.Size(39, 29);
+            this.lblNewCustomer.TabIndex = 12;
+            this.lblNewCustomer.Text = "16";
             // 
-            // pictureBox1
+            // label9
             // 
-            this.pictureBox1.Image = global::ATMSystem.Properties.Resources.user;
-            this.pictureBox1.Location = new System.Drawing.Point(167, 19);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(53, 50);
-            this.pictureBox1.TabIndex = 13;
-            this.pictureBox1.TabStop = false;
+            this.label9.AutoSize = true;
+            this.label9.Cursor = System.Windows.Forms.Cursors.No;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.White;
+            this.label9.Location = new System.Drawing.Point(13, 10);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(136, 18);
+            this.label9.TabIndex = 11;
+            this.label9.Text = "Tổng Số Tài Khoản";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(815, 39);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 33);
+            this.button1.TabIndex = 19;
+            this.button1.Text = "Cập Nhập";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Admin_MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(909, 402);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel3);
@@ -501,22 +513,22 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataSe1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -556,15 +568,16 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblTransMonth;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblMoney;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.PictureBox pictureBox6;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label lblNewCustomer;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.Button button1;
     }
 }

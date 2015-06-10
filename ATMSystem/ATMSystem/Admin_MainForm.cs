@@ -22,6 +22,7 @@ namespace ATMSystem
             this.dangNhapForm = dangNhapForm;
             this.workContext = workContext;
             InitializeComponent();
+            LoadData();
             this.CenterToScreen();
         }
 
@@ -29,6 +30,32 @@ namespace ATMSystem
         {
             this.Dispose();
             dangNhapForm.Visible = true;
+          
+        }
+
+        private void LoadData()
+        {
+            var tongKhachHang = workContext.CountRecords("*", false, "User", "User_Delete=0", null);
+            lblTotalCustomer.Text = tongKhachHang.ToString();
+
+            var tongSoTaiKhoan = workContext.CountRecords("*", false, "Account", "Acc_Status = 1 and Acc_Delete = 0",
+                null);
+            lblNewCustomer.Text = tongSoTaiKhoan.ToString();
+
+            var tongSoGiaoDich = workContext.CountRecords("*", false, "Transaction", string.Empty, null);
+            lblTotalTrans.Text = tongSoGiaoDich.ToString();
+
+            var tongSoTienGiaoDich = workContext.SumRecords("Tran_Amount", "Transaction", string.Empty, null);
+            lblTotalMoney.Text = tongSoTienGiaoDich.ToString();
+
+            var condition = "Month(Tran_Date) = Month(getDate()) and Year(Tran_Date)=YEAR(getDate())";
+            var tongSoGiaoDichTrongThang = workContext.CountRecords("*", false, "Transaction", condition, null);
+            lblTransMonth.Text = tongSoGiaoDichTrongThang.ToString();
+
+            var moneyCondition = "Month(Tran_Date) = Month(getDate()) and Year(Tran_Date)=YEAR(getDate())";
+            var tongSoTienGiaoDichTrongThang = workContext.SumRecords("Tran_Amount", "Transaction", moneyCondition, null);
+            lblMoney.Text = tongSoTienGiaoDichTrongThang.ToString();
+
         }
 
         private void thoatToolStripMenuItem_Click(object sender, EventArgs e)
@@ -68,6 +95,11 @@ namespace ATMSystem
         private void báoCáoHệThốngToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new Admin_BaoCaoHeThong(workContext).ShowDialog();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            LoadData();
         }
 
     }

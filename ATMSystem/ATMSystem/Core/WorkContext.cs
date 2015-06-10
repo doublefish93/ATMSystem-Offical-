@@ -351,7 +351,9 @@ namespace ATMSystem.Core
 
             var con = new SqlConnection(url);
 
-            var query = string.Format("Select Sum({0}) from [{1}] where {2}", column, table, condition);
+            string query = string.Empty;
+
+            query = string.IsNullOrEmpty(condition) ? string.Format("Select Sum({0}) from [{1}] ", column, table) : string.Format("Select Sum({0}) from [{1}] where {2}", column, table, condition);
             try
             {
                 var cmd = new SqlCommand(query, con);
