@@ -30,6 +30,8 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblSoLan = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.lblNote = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnSubmit = new System.Windows.Forms.Button();
@@ -41,8 +43,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.lblSoLan = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -51,9 +51,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(221, 25);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.Size = new System.Drawing.Size(47, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "label1";
+            this.label1.Text = "Gửi Tiền";
             // 
             // groupBox1
             // 
@@ -75,6 +75,24 @@
             this.groupBox1.Size = new System.Drawing.Size(443, 328);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
+            // 
+            // lblSoLan
+            // 
+            this.lblSoLan.AutoSize = true;
+            this.lblSoLan.Location = new System.Drawing.Point(401, 70);
+            this.lblSoLan.Name = "lblSoLan";
+            this.lblSoLan.Size = new System.Drawing.Size(35, 13);
+            this.lblSoLan.TabIndex = 13;
+            this.lblSoLan.Text = "label5";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(262, 70);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(133, 13);
+            this.label6.TabIndex = 12;
+            this.label6.Text = "Số lần gửi tiền trong ngày: ";
             // 
             // lblNote
             // 
@@ -172,24 +190,6 @@
             this.label2.Size = new System.Drawing.Size(56, 13);
             this.label2.TabIndex = 1;
             this.label2.Text = "Tài Khoản";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(262, 70);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(133, 13);
-            this.label6.TabIndex = 12;
-            this.label6.Text = "Số lần gửi tiền trong ngày: ";
-            // 
-            // lblSoLan
-            // 
-            this.lblSoLan.AutoSize = true;
-            this.lblSoLan.Location = new System.Drawing.Point(401, 70);
-            this.lblSoLan.Name = "lblSoLan";
-            this.lblSoLan.Size = new System.Drawing.Size(35, 13);
-            this.lblSoLan.TabIndex = 13;
-            this.lblSoLan.Text = "label5";
             // 
             // User_GuiTien
             // 
